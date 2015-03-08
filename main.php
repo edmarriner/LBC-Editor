@@ -14,18 +14,8 @@
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-add_action( 'admin_menu', 'register_my_custom_menu_page' );
+// Init the LBC class
+$LBC = new LBC();
 
-function register_my_custom_menu_page() {
-
-	add_menu_page(
-		'custom menu title',
-		'custom menu',
-		'manage_options',
-		'myplugin/myplugin-admin.php',
-		'',
-		plugins_url( 'myplugin/images/icon.png' ),
-		6
-	);
-
-}
+// Register The menu items
+$LBC->registerMenus();
