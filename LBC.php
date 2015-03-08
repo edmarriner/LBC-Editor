@@ -1,50 +1,23 @@
 <?php
-
 /**
- * The main class that holds state and methods relating to the LBC
- * content editor plugin.
-*/
-class LBC {
+ * Plugin Name: Name of the plugin, must be unique.
+ * Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
+ * Description: A brief description of the plugin.
+ * Version: The plugin's version number. Example: 1.0.0
+ * Author: Name of the plugin author
+ * Author URI: http://URI_Of_The_Plugin_Author
+ * Text Domain: Optional. Plugin's text domain for localization. Example: mytextdomain
+ * Domain Path: Optional. Plugin's relative directory path to .mo files. Example: /locale/
+ * Network: Optional. Whether the plugin can only be activated network wide. Example: true
+ * License: A short license name. Example: GPL2
+ */
 
-	public function __construct() {
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-	}
+require "core.php";
 
-	/**
-	 * Register the menu items with Wordpress.
-	 */
-	public function register_menus() {
+// Init the LBC class
+$LBC = new LBC();
 
-		// Add the news editor menu item
-		add_action( 'admin_menu', function(){
-
-			// Call the wordpress add menu
-			add_menu_page(
-				'News Editor',
-				'News',
-				'manage_options',
-				'LBC-Editor/news.php',
-				'',
-				'',
-				6
-			);
-
-		} );
-
-		// Add the news editor menu item
-		add_action( 'admin_menu', function(){
-
-			// Call the wordpress add menu
-			add_menu_page(
-				'News Editor',
-				'News',
-				'manage_options',
-				'LBC-Editor/news.php',
-				'',
-				'',
-				6
-			);
-
-		} );
-	}
-}
+// Register The menu items
+$LBC->registerMenus();
